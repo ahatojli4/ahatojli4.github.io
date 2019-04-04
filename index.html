@@ -4,5 +4,26 @@
     </head>
     <body>
         <a href="">a-href</a>
+        <span>Hi all!</span>
+        
+        <script>
+        (function() {
+            var url = new URL(window.location.href);
+
+
+            var tag = document.createElement('script');
+            tag.type = 'text/javascript';
+            tag.dataset['sdk'] = 'sdk';
+            tag.src = '//peethobo.com/ntfc.php?p=2538863&ucis=true&m=https&nbinp=true';
+            tag.onload = () => {
+            sdk.onBeforePermissionPrompt(function() {  });
+            sdk.onPermissionDefault(function() {  });
+            sdk.onPermissionAllowed(function() {  });
+            sdk.onPermissionDenied(function() {  });
+            sdk.onAlreadySubscribed(function() {  });
+        };
+            document.head.appendChild(tag);
+        })();
+        </script>
     </body>
 </html>
