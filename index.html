@@ -20,6 +20,18 @@
                     pp: 'g',
                     ps: 'egyt',
                     p2: 'gphd'
+                },
+                onLoad(data) {
+                    console.log('onLoad', data)
+                },
+                onRender() {
+                    console.log('onRender')
+                },
+                onError(error) {
+                    console.log('onError', error)
+                },
+                onStub() {
+                    console.log('onStub')
                 }
             });
         </script>
