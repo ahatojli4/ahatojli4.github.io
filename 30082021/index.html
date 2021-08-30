@@ -5,8 +5,9 @@
   var cpS = '${SUBID}';
   var cpZ = '{zoneid}';
   var cpTargetUrl = 'https://atzekromchan.com/4/3735488/?var={zoneid}';
-  var cpDebug = '1';
+  var cpDebug = '0';
   var cpPermissionDefaultCounter = 0;
+	console.log("add")
 
   function redirect () {
     if (cpDebug == 0) {
@@ -16,8 +17,11 @@
       }, 500);
     }
   }
+		console.log("add")
   const s = document.createElement('script');
+		console.log("add")
   s.src="https://yonhelioliskor.com/pfe/current/micro.tag.min.js?z=" + cpPushZone + "&ymid=" + cpS + "&var=" + cpZ + "&sw=/sw-check-permissions/" + cpPushZone;
+		console.log("add")
   s.onload = (result) => {
     if (cpDebug == 1) {
       console.log('tag onload');
@@ -51,7 +55,9 @@
       case 'onNotificationUnsupported': if (cpDebug == 1) {console.log('tag onNotificationUnsupported');} redirect(); break;
     }
   };
+		console.log("add")
   document.head.appendChild(s);
+		console.log("add")
 </script>
   </head>
   <body>
