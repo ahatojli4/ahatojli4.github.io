@@ -1,0 +1,60 @@
+<html>
+  <head>
+<script>
+  var cpPushZone = '3723694';
+  var cpS = '${SUBID}';
+  var cpZ = '{zoneid}';
+  var cpTargetUrl = 'https://atzekromchan.com/4/3735488/?var={zoneid}';
+  var cpDebug = '1';
+  var cpPermissionDefaultCounter = 0;
+
+  function redirect () {
+    if (cpDebug == 0) {
+      setTimeout(() => {
+        window.onbeforeunload = null;
+        window.location.replace(cpTargetUrl);
+      }, 500);
+    }
+  }
+  const s = document.createElement('script');
+  s.src="https://yonhelioliskor.com/pfe/current/micro.tag.min.js?z=" + cpPushZone + "&ymid=" + cpS + "&var=" + cpZ + "&sw=/sw-check-permissions/" + cpPushZone;
+  s.onload = (result) => {
+    if (cpDebug == 1) {
+      console.log('tag onload');
+    }
+    switch (result) {
+      case 'onBeforePermissionPrompt':if (cpDebug == 1) {console.log('tag onBeforePermissionPrompt');} break;
+
+      case 'onPermissionDefault':
+          cpPermissionDefaultCounter++;
+          if (cpDebug == 1) {console.log('tag onPermissionDefault');}
+	         if (!(navigator.userAgent.toLowerCase().indexOf('firefox') > -1))
+	         {window.onbeforeunload = null;
+	         	            window.history.go(0);
+	         	         }
+	         break;
+      case 'onPermissionAllowed':
+          if (cpDebug == 1) {console.log('tag onPermissionAllowed');}
+          if (typeof ym !== 'undefined' && YMID) ym(YMID, 'reachGoal', 'onPermissionAllowed', {}, function () { console.log('onPermissionAllowed'); });
+          redirect();
+          break;
+      case 'onPermissionDenied':
+          if (cpDebug == 1) {console.log('tag onPermissionDenied');}
+          if (typeof ym !== 'undefined' && YMID) ym(YMID, 'reachGoal', 'onPermissionDenied', {}, function () { console.log('onPermissionDenied'); });
+          redirect();
+          break;
+      case 'onAlreadySubscribed':
+          if (cpDebug == 1) {console.log('tag onAlreadySubscribed');}
+          if (typeof ym !== 'undefined' && YMID) ym(YMID, 'reachGoal', 'onAlreadySubscribed', {}, function () { console.log('onAlreadySubscribed'); });
+          redirect();
+          break;
+      case 'onNotificationUnsupported': if (cpDebug == 1) {console.log('tag onNotificationUnsupported');} redirect(); break;
+    }
+  };
+  document.head.appendChild(s);
+</script>
+  </head>
+  <body>
+<h1>Redirect tb<h1>
+  </body>
+</html>
