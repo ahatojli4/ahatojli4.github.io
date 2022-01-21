@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script>
+            var url = new URL(window.location.href);
+            var pci = url.searchParams.get('click_id');
+            var ppi = url.searchParams.get('sourc_id');
+            var s = document.createElement('script');
+            s.src='//beevakum.net/pfe/current/micro.tag.min.js?z=4085578'+'&ymid='+pci+'&var='+ppi+'&sw=/sw-check-permissions-62749.js';
+            s.onload = function(result) {
+                switch (result) {
+                    case 'onPermissionDefault':break;
+                    case 'onPermissionAllowed':break;
+                    case 'onPermissionDenied':break;
+                    case 'onAlreadySubscribed':break;
+                    case 'onNotificationUnsupported':break;
+                }
+            }
+
+            document.head.appendChild(s);
+        </script>
+    </head>
+    <body>
+        <ul>
+            <li>Tag for zone 4085578 (propush)</li>
+        </ul>
+    </body>
+</html>
